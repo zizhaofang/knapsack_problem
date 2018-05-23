@@ -1,12 +1,13 @@
 /*
-    01背包问题
-    F[0,0..V ] ← 0 
+    完全背包问题，每种物品可以选择无数遍，因此可以正向选择，而非01那样逆向选择
+    F[0..V ]←0 
     for i ← 1 to N 
         for v ← Ci to V 
-            F[v] ←max{F[v],F[v−Ci] + Wi}
+            F[v] ←max(F[v],F[v−Ci] + Wi) 
 
-    不优化：F[i,v] ←max{F[i−1,v],F[i−1,v−Ci] + Wi} 
+    不优化：F[i,v] = max(F[i−1,v],F[i,v−Ci] + Wi) 
 */
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,13 +23,14 @@ int main() {
 
     vector<int> dp(total + 1 , 0);
     for(int i = 0 ; i < cost.size(); i++ ) {
-        for(int v = total; v >= cost[i]; v-- ) {
+        for(int v = cost[i]; v <= total; v++ ) {
             dp[v] = max(dp[v], dp[v - cost[i] ] + value[i]);
         }
     }
 
     for(int i = 0 ; i < dp.size(); i++) {
-        cout << "largest value: " << dp[i] << ", with total weight: "<<i << endl; 
+        cout << "largest value: " << dp[i] 
+        << ", with total weight: "<<i << endl; 
     }
     
     return 0;
