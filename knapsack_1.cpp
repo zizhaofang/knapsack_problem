@@ -25,11 +25,13 @@ int main() {
         for(int v = total; v >= cost[i]; v-- ) {
             dp[v] = max(dp[v], dp[v - cost[i] ] + value[i]);
         }
+        //print the state
+        for(int j = 0 ; j < dp.size(); j++) {
+            cout << dp[j] << " ";
+        }
+        cout << endl;
     }
-
-    for(int i = 0 ; i < dp.size(); i++) {
-        cout << "largest value: " << dp[i] << ", with total weight: "<<i << endl; 
-    }
+    
     
     return 0;
 
