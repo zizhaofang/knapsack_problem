@@ -14,6 +14,13 @@
 #include <climits>
 using namespace std;
 
+void print(vector<int>& dp) {
+    //print the state
+    for(int j = 0 ; j < dp.size(); j++) {
+        cout << dp[j] << " ";
+    }
+    cout << endl;
+}
 int main() {
 	int a1[] = {5, 4, 7, 2, 6};
     int a2[] = {12, 3 , 10, 3 , 6};
@@ -26,11 +33,7 @@ int main() {
         for(int v = cost[i]; v <= total; v++ ) {
             dp[v] = max(dp[v], dp[v - cost[i] ] + value[i]);   
         }
-        //print the state
-        for(int j = 0 ; j < dp.size(); j++) {
-            cout << dp[j] << " ";
-        }
-        cout << endl;
+        print(dp);
     }
 
     return 0;
