@@ -1,3 +1,5 @@
+// http://www.cppblog.com/flyinghearts/archive/2010/09/01/125555.aspx
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
