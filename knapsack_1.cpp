@@ -2,7 +2,7 @@
     01背包问题
     F[0,0..V ] ← 0 
     for i ← 1 to N 
-        for v ← Ci to V 
+        for v ← V to Ci 
             F[v] ←max{F[v],F[v−Ci] + Wi}
 
     不优化：F[i,v] ←max{F[i−1,v],F[i−1,v−Ci] + Wi} 
